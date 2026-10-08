@@ -40,11 +40,13 @@ android {
         jniLibs.useLegacyPackaging true
     }
 }
+
 repositories {
     maven {
         url 'https://repo.dairy.foundation/releases'
     }
 }
+
 dependencies {
     implementation project(':FtcRobotController')
     implementation 'androidx.core:core-ktx:1.19.1'
