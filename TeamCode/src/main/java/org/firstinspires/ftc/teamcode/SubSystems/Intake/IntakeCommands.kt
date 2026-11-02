@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.SubSystems.Intake
+package org.firstinspires.ftc.teamcode.subsystems.intake
 
 object IntakeCommands {
 }
