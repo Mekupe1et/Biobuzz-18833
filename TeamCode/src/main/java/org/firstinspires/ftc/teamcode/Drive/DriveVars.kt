@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode.Drive
 
 import com.qualcomm.robotcore.hardware.Gamepad
 
-class DriveVars {
-    var driveHardware = DriveHardware()
+object DriveVars {
+
     var maxspeed = 1.0
 
     var fl = 0.0

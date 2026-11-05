@@ -1,21 +1,21 @@
 package org.firstinspires.ftc.teamcode.Drive
-import com.qualcomm.robotcore.hardware.DcMotor
-import com.qualcomm.robotcore.hardware.DcMotorSimple
-import com.qualcomm.robotcore.hardware.HardwareMap
+import dev.nextftc.hardware.actuators.NextMotor
+import dev.nextftc.robot.Mechanism
+import dev.nextftc.robot.Telemetry
 
-class DriveHardware {
-    lateinit var frontright: DcMotor
-    lateinit var frontleft: DcMotor
-    lateinit var backright: DcMotor
-    lateinit var backleft: DcMotor
-    fun driving(hardwareMap: HardwareMap){
-        frontleft = hardwareMap.get(DcMotor::class.java, "fl")
-        frontright = hardwareMap.get(DcMotor::class.java, "fr")
-        backleft = hardwareMap.get(DcMotor::class.java,"bl")
-        backright = hardwareMap.get(DcMotor::class.java,"br")
 
-        frontleft.direction = DcMotorSimple.Direction.REVERSE
-        backleft.direction = DcMotorSimple.Direction.REVERSE
+object DriveHardware : Mechanism{
+    val frontright = lazy{NextMotor("fr")}
+    val frontleft = lazy{NextMotor("fl")}
+    val backright = lazy{NextMotor("br")}
+    val backleft = lazy{NextMotor("bl")}
+    fun setPowr(powr: Double, powr2: Double, powr3: Double, powr4: Double){
+        backleft.value.throttle = powr
+        backright.value.throttle = powr2
+        frontleft.value.throttle = powr3
+        frontright.value.throttle = powr4
     }
-
+    override fun periodic() {
+        DriveHardware.setPowr(DriveVars.bl, DriveVars.br, DriveVars.fl, DriveVars.fr)
+    }
 }

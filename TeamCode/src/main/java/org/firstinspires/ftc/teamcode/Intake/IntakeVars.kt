@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.Intake
 
-class IntakeVars {
-   var intake = IntakeHardware()
+object IntakeVars {
     var speed = 0.7;
 }
