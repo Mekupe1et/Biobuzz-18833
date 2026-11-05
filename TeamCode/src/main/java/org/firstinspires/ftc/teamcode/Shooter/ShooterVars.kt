@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.Shooter
 
-class ShooterVars {
+import dev.nextftc.robot.Mechanism
+
+object ShooterVars: Mechanism {
     var speed = 0.7
 }
