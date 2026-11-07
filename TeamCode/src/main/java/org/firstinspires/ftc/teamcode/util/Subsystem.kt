@@ -21,4 +21,6 @@ abstract class Subsystem {
 
     open fun telemetry() {}
 
+    open fun pid(){}
+
 }
