@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.util
 
+import org.firstinspires.ftc.teamcode.util.Util.getTimeStamp
+
 abstract class Subsystem {
     companion object{
         val subsystems = ArrayList<Subsystem>()
@@ -7,6 +9,7 @@ abstract class Subsystem {
     init {
         subsystems.add(this)
     }
+    var looptime = 0.0
     /** Called repeatedly while the OpMode is in the INIT phase. */
     open fun disabledPeriodic() {}
 
@@ -22,5 +25,18 @@ abstract class Subsystem {
     open fun telemetry() {}
 
     open fun pid(){}
+
+    inline fun <T> methodWarper(action: () -> T): T {
+        val startTime = getTimeStamp()
+        return try {
+            action()
+        } finally {
+            addToTime(startTime)
+        }
+    }
+
+    open fun addToTime(startTime: Long) {
+        looptime += getTimeStamp() - startTime
+    }
 
 }

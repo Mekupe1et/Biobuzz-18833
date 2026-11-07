@@ -1,16 +1,10 @@
 package org.firstinspires.ftc.teamcode.util
 
-import com.bylazar.panels.Panels
 import com.bylazar.telemetry.PanelsTelemetry
-import com.qualcomm.robotcore.robot.Robot
-import dev.nextftc.hardware.RobotController
-import dev.nextftc.hardware.RobotController.hardwareMap
 import dev.nextftc.hardware.lynx.NextLynxModule
-import dev.nextftc.robot.NextRobot
 import dev.nextftc.robot.Telemetry
 import dev.nextftc.robot.opmode.BlazeBulkReadHook
 import dev.nextftc.robot.opmode.BlazeOpMode
-import dev.nextftc.robot.opmode.NextOpMode
 import gay.zharel.fateweaver.flight.FlightRecorder
 
 class MyOpmode : BlazeOpMode(
@@ -19,65 +13,54 @@ class MyOpmode : BlazeOpMode(
     BlazeBulkReadHook(NextLynxModule.Type.EXPANSION_HUB, false),
 ) {
     override fun disabledPeriodic() {
-
+        //TODO: add support for marrow
         Telemetry.addBackend(FlightRecorder)
         Telemetry.addBackend(PanelsTelemetry.ftcTelemetry)
-        Subsystem.subsystems.forEach {
-            it.disabledPeriodic()
-        }
+        forEachSubsystem { disabledPeriodic() }
         playLoop()
-        Subsystem.subsystems.forEach {
-            it.telemetry()
-        }
-
-        Telemetry.update()
+        forEachTelemetry()
     }
     override fun start() {
-        Subsystem.subsystems.forEach {
-            it.start()
-        }
+        forEachSubsystem { start() }
         pressStart()
-        Subsystem.subsystems.forEach {
-            it.telemetry()
-        }
-        Telemetry.update()
+        forEachTelemetry()
     }
     override fun periodic() {
-        Subsystem.subsystems.forEach {
-            it.periodic()
-        }
+        forEachSubsystem { periodic() }
         loop()
-        Subsystem.subsystems.forEach {
-            it.telemetry()
-        }
-        Telemetry.update()
+        forEachTelemetry()
     }
     override fun end() {
-        Subsystem.subsystems.forEach {
-            it.end()
-        }
+        forEachSubsystem { end() }
         finish()
-        Subsystem.subsystems.forEach {
-            it.telemetry()
-        }
-        Telemetry.update()
+        forEachTelemetry()
+    }
+
+    override fun onExpansionHubBulkData() {
+        forEachSubsystem { pid() }
+        onExpHubBulk()
     }
 
     override fun onControlHubBulkData() {
         onCtrlHubBulk()
     }
 
-    override fun onExpansionHubBulkData() {
-        Subsystem.subsystems.forEach {
-            it.pid()
-        }
-        onExpHubBulk()
-    }
-
     override fun onLocalizationData() {
         onLocData()
     }
 
+    private fun forEachSubsystem(action: Subsystem.() -> Unit) {
+        Subsystem.subsystems.forEach { subsystem ->
+            subsystem.methodWarper { subsystem.action() }
+        }
+    }
+    private fun forEachTelemetry(){
+        Subsystem.subsystems.forEach {
+            it.telemetry()
+        }
+        Telemetry.update()
+    }
+//TODO: add runtime telemetry
     /** Called repeatedly while the OpMode is in the INIT phase. */
     open fun playLoop() {}
 

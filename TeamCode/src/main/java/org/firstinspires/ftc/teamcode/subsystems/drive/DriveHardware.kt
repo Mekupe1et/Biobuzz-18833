@@ -28,8 +28,8 @@ object DriveHardware : Subsystem() {
     var isHolding = false
         private set
 
-    fun getPoseEstimate(): Pose = follower.value.pose()
-    fun setPoseEstimate(pose: Pose) { follower.value.setPose(pose) }
+    fun getPoseEstimate(): Pose = methodWarper { follower.value.pose() }
+    fun setPoseEstimate(pose: Pose) = methodWarper { follower.value.setPose(pose) }
 
     override fun start() {
         if (Util.roughlyEquals(getPoseEstimate(), Pose(0.0,0.0,0.0), 1.0)){

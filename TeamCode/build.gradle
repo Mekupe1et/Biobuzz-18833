@@ -52,14 +52,13 @@ repositories {
 
 dependencies {
     implementation project(':FtcRobotController')
-    implementation 'androidx.core:core-ktx:1.19.1'
     implementation 'dev.nextftc.v2:control:0.3.0'
     implementation 'dev.nextftc.v2:hardware:0.3.0'
     implementation 'dev.nextftc.v2:robot:0.3.0'
     implementation("gay.zharel.fateweaver:ftc:0.4.1")
     implementation("dev.frozenmilk.sinister:Sloth:0.3.2")
     implementation("com.bylazar.sloth:fullpanels:0.3.2+1.0.13")
-    implementation 'com.skeletonarmyftc.marrow:core:1.2.0'
+    implementation 'com.skeletonarmyftc.marrow:core:1.2.4'
     implementation 'dev.anygeneric:blazeftc:0.1.67'
     implementation "dev.anygeneric:blazeftc_pedro3:0.1.67"
 

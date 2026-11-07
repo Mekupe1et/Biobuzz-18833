@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.SubSystems.Transfer
+package org.firstinspires.ftc.teamcode.subsystems.transfer
 
 import com.pedropathing.ivy.commands.Commands.instant
-import org.firstinspires.ftc.teamcode.SubSystems.Transfer.TransferHardware.setTransferGateModeBig
-import org.firstinspires.ftc.teamcode.SubSystems.Transfer.TransferHardware.setTransferGateModeSmall
-import org.firstinspires.ftc.teamcode.SubSystems.Transfer.TransferHardware.setTransferState
+import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferHardware.setTransferGateModeBig
+import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferHardware.setTransferGateModeSmall
+import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferHardware.setTransferState
 
 object TransferCommands {
     val runTransfer = instant { setTransferState(TransferState.ON) }

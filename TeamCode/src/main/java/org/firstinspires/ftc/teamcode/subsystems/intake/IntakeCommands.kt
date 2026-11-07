@@ -1,8 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems.intake
 
 import com.pedropathing.ivy.commands.Commands.instant
-import org.firstinspires.ftc.teamcode.SubSystems.intake.IntakeArmState
-import org.firstinspires.ftc.teamcode.SubSystems.intake.IntakeState
 import org.firstinspires.ftc.teamcode.subsystems.intake.IntakeHardware.setIntakeState
 
 object IntakeCommands {
