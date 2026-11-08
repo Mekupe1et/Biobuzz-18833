@@ -6,7 +6,7 @@ import dev.nextftc.robot.Telemetry
 import org.firstinspires.ftc.teamcode.util.Subsystem
 
 object TransferHardware: Subsystem() {
-    val TransferMotor = NextMotor("TM")
+    val TransferMotor = NextMotor("tM")
     val TransferGateServoSmall = NextServo("SS")
     val TransferGateServoBig = NextServo("SB")
 

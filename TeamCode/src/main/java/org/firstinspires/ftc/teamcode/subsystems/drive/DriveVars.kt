@@ -1,22 +1,19 @@
 package org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem
 
 import com.bylazar.configurables.annotations.Configurable
-import com.pedropathing.geometry.Pose
-import org.firstinspires.ftc.teamcode.Pedro.FusionLocalizer
+import com.pedropathing.drivetrain.DrivePowers
+import com.pedropathing.follower.ManualDrive
+import com.pedropathing.math.Pose
+import org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem.DriveHardware.follower
+import org.firstinspires.ftc.teamcode.util.OpModeManager.gp1
+
 
 @Configurable
 object DriveVars {
-    var trustLL = 0.01
 
-    // Inside your Follower/Localizer initialization:
-    @JvmField var P: DoubleArray = doubleArrayOf(0.1, 0.1, 0.1) // Initial uncertainty
 
-    // Q: How much the wheels drift (Increase these to make the robot "listen" to the camera more)
-    @JvmField var processVariance: DoubleArray = doubleArrayOf(0.2, 0.2, 0.2)
+    @JvmField var startingPose = Pose(72.0, 72.0, 0.0)
+    @JvmField var finishingPose = Pose(0.0, 0.0, 0.0)
 
-    // R: How much you trust the camera (Decrease these to make the camera "stronger")
-    @JvmField var measurementVariance: DoubleArray = doubleArrayOf(0.01, 0.01, 0.01)
-
-    @JvmField var startingPose = Pose(72.0,72.0,0.0)
 
 }
