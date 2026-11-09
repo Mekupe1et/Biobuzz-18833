@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems.transfer
 
+import com.skeletonarmy.marrow.telemetry.FormatBuilder
+import com.skeletonarmy.marrow.telemetry.HtmlColor
 import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.hardware.actuators.NextServo
 import dev.nextftc.robot.Telemetry
@@ -23,10 +25,29 @@ object TransferHardware: Subsystem() {
         methodWarper { TransferVars.transferGateStateSmall = state }
 
     override fun telemetry() {
-        Telemetry.log("Transfer Power: ${TransferVars.transferPower}")
-        Telemetry.log("Transfer Gate Small State: ${TransferVars.transferGateStateSmall}")
-        Telemetry.log("Transfer Gate Small Position: ${TransferVars.transferGateModeSmall}")
-        Telemetry.log("Transfer Gate Big State: ${TransferVars.transferGateStateBig}")
-        Telemetry.log("Transfer Gate Big Position: ${TransferVars.transferGateModeBig}")
+        // log marrow HTML telemetry Dev Tool
+        super.telemetry()
+
+        //the title of the subsystem
+        logHtml(
+            FormatBuilder("── Transfer ──").italic().setColor(HtmlColor.BLUE).format()
+        )
+
+        // all of the data that will be show
+        logHtml(
+            "<font color='blue'><b>Transfer Power:</b> ${TransferVars.transferPower}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Small State:</b> ${TransferVars.transferGateStateSmall}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Small Position:</b> ${TransferVars.transferGateModeSmall}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Big State:</b> ${TransferVars.transferGateStateBig}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Big Position:</b> ${TransferVars.transferGateModeBig}</font>"
+        )
     }
 }
