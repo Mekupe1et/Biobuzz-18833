@@ -5,6 +5,7 @@ import com.skeletonarmy.marrow.telemetry.HtmlColor
 import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.hardware.actuators.NextServo
 import dev.nextftc.robot.Telemetry
+import org.firstinspires.ftc.teamcode.util.HtmlTelemetry
 import org.firstinspires.ftc.teamcode.util.Subsystem
 
 object IntakeHardware: Subsystem() {
@@ -26,9 +27,9 @@ object IntakeHardware: Subsystem() {
     }
 
     override fun telemetry() {
-        Telemetry.log("Intake State: ${IntakeVars.intakeState}")
-        Telemetry.log("Intake Power: ${IntakeVars.intakePower}")
-        Telemetry.log("Intake Arm Position: ${IntakeVars.intakeArmPos}")
+        HtmlTelemetry.log("Intake State: ${IntakeVars.intakeState}")
+        HtmlTelemetry.log("Intake Power: ${IntakeVars.intakePower}")
+        HtmlTelemetry.log("Intake Arm Position: ${IntakeVars.intakeArmPos}")
     }
 
 }

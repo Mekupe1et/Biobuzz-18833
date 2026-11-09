@@ -14,8 +14,8 @@ class MyOpmode : BlazeOpMode(
 ) {
     override fun disabledPeriodic() {
         //TODO: add support for marrow
-        Telemetry.addBackend(FlightRecorder)
-        Telemetry.addBackend(PanelsTelemetry.ftcTelemetry)
+        HtmlTelemetry.addBackend(FlightRecorder)
+        HtmlTelemetry.addBackend(PanelsTelemetry.ftcTelemetry)
         forEachSubsystem { disabledPeriodic() }
         playLoop()
         forEachTelemetry()
