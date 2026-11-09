@@ -10,15 +10,19 @@ object Util {
     fun roughlyEquals(pos1: Pose, pos2: Pose, threshold: Double): Boolean {
         return pos1.distance(pos2) < threshold
     }
+
     fun getTimeStamp(): Long {
         return System.currentTimeMillis()
     }
+
     fun wrap360(angle: Double): Double {
         return ((angle % 360) + 360) % 360
     }
+
     fun wrap360(angle: Int): Int {
         return ((angle % 360) + 360) % 360
     }
+
     fun wrap2Pi(radians: Double): Double {
         var radians = radians
         while (radians > Math.PI) {

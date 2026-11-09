@@ -6,7 +6,6 @@ import dev.nextftc.robot.Telemetry
 abstract class Subsystem {
     companion object{
         val subsystems = ArrayList<Subsystem>()
-        const val HTML_TELEMETRY_URL = "https://marrow.skeletonarmyftc.com/dev-tools/html-telemetry"
     }
     init {
         subsystems.add(this)
@@ -24,13 +23,7 @@ abstract class Subsystem {
     /** Called exactly once when the OpMode finishes execution. */
     open fun end() {}
 
-    open fun telemetry() {
-        Telemetry.log("<a href=\"$HTML_TELEMETRY_URL\">HTML Telemetry Dev Tool</a>")
-    }
-
-    fun logHtml(html: String) {
-        Telemetry.log(html)
-    }
+    open fun telemetry() {}
 
     open fun pid(){}
 

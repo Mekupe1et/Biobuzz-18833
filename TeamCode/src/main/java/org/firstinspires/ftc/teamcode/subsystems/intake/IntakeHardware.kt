@@ -26,24 +26,9 @@ object IntakeHardware: Subsystem() {
     }
 
     override fun telemetry() {
-        // log marrow HTML telemetry Dev Tool
-        super.telemetry()
-
-        //the title of the subsystem
-        logHtml(
-            FormatBuilder("── Intake ──").italic().setColor(HtmlColor.GREEN).format()
-        )
-
-        // all of the data that will be show
-        logHtml(
-            "<font color='green'><b>Intake Power:  ${IntakeVars.intakePower}</b></font>"
-        )
-        logHtml(
-            "<font color='green'><b>Intake State: ${IntakeVars.intakeState}</b></font>"
-        )
-        logHtml(
-            "<font color='green'><b>Intake Arm Position: ${IntakeVars.intakeArmPos}</b></font>"
-        )
+        Telemetry.log("Intake State: ${IntakeVars.intakeState}")
+        Telemetry.log("Intake Power: ${IntakeVars.intakePower}")
+        Telemetry.log("Intake Arm Position: ${IntakeVars.intakeArmPos}")
     }
 
 }
