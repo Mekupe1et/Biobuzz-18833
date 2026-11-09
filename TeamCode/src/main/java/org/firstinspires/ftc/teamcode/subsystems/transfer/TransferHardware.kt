@@ -44,10 +44,22 @@ object TransferHardware: Subsystem() {
             "<font color='blue'><b>Transfer Gate Small Position:</b> ${TransferVars.transferGateModeSmall}</font>"
         )
         logHtml(
+            "<font color='blue'><b>Transfer Gate Small Open Mode Posision:<b> ${TransferVars.transferGateModeOpenSmall}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Small Close Mode Posision:<b> ${TransferVars.transferGateModeCloseSmall}</font>"
+        )
+        logHtml(
             "<font color='blue'><b>Transfer Gate Big State:</b> ${TransferVars.transferGateStateBig}</font>"
         )
         logHtml(
             "<font color='blue'><b>Transfer Gate Big Position:</b> ${TransferVars.transferGateModeBig}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Big Open Mode Position:</b> ${TransferVars.transferGateModeOpenBig}</font>"
+        )
+        logHtml(
+            "<font color='blue'><b>Transfer Gate Big Close Mode Posision:</b> ${TransferVars.transferGateModeCloseBig}</font>"
         )
     }
 }
