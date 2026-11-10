@@ -1,43 +1,66 @@
 package org.firstinspires.ftc.teamcode.util
 
+import com.skeletonarmy.marrow.telemetry.FormatBuilder
 import com.skeletonarmy.marrow.telemetry.MarrowTelemetry
 import com.skeletonarmy.marrow.telemetry.TelemetryModifier
-import com.skeletonarmy.marrow.telemetry.modifiers.BoldModifier
-import dev.nextftc.robot.TelemetryBackend
 import org.firstinspires.ftc.robotcore.external.Telemetry
-
 
 object HtmlTelemetry {
     private val backends: MutableSet<Telemetry> = mutableSetOf()
-    private lateinit var marrowTelemetry: MarrowTelemetry
+    private val marrowTelemetry by lazy { MarrowTelemetry(MyOpModeManager.telemetry) }
 
     fun addBackend(telemetry: Telemetry) {
         backends.add(telemetry)
     }
 
-    fun <T> log(string: String, value: T, modifier: TelemetryModifier? = null) {
+    fun addData(caption: String, value: Any?, vararg modifiers: TelemetryModifier) {
+        val strValue = value?.toString() ?: "null"
         for (backend in backends) {
-            backend.addData(string, value.toString())
+            backend.addData(caption, strValue)
         }
-        if (::marrowTelemetry.isInitialized) {
-            marrowTelemetry.addData(string, value.toString(), modifier)
-        }
-    }
-    fun <T> log(value: T, modifier: TelemetryModifier? = null) {
-        for (backend in backends) {
-            backend.addData(value.toString(),"")
-        }
-        if (::marrowTelemetry.isInitialized) {
-            marrowTelemetry.addData(value.toString(), modifier)
-        }
+        marrowTelemetry.addData(caption, strValue, *modifiers)
     }
 
-    fun update(){
+    fun addData(caption: String, formatBuilder: FormatBuilder) {
+        val formatted = formatBuilder.format()
+        for (backend in backends) {
+            backend.addData(caption, formatted)
+        }
+        marrowTelemetry.addData(caption, formatted)
+    }
+
+    fun addLine(line: Any?, vararg modifiers: TelemetryModifier) {
+        val strLine = line?.toString() ?: ""
+        for (backend in backends) {
+            backend.addLine(strLine)
+        }
+        marrowTelemetry.addData(null, strLine, *modifiers)
+    }
+
+    fun addLine(formatBuilder: FormatBuilder) {
+        val formatted = formatBuilder.format()
+        for (backend in backends) {
+            backend.addLine(formatted)
+        }
+        marrowTelemetry.addData(null, formatted)
+    }
+
+    fun log(caption: String, value: Any?, vararg modifiers: TelemetryModifier) {
+        addData(caption, value, *modifiers)
+    }
+
+    fun log(line: Any?) {
+        addLine(line)
+    }
+
+    fun log(line: String, modifier: TelemetryModifier, vararg extraModifiers: TelemetryModifier) {
+        addLine(line, modifier, *extraModifiers)
+    }
+
+    fun update() {
         for (backend in backends) {
             backend.update()
         }
-        if (::marrowTelemetry.isInitialized) {
-            marrowTelemetry.update()
-        }
+        marrowTelemetry.update()
     }
 }
