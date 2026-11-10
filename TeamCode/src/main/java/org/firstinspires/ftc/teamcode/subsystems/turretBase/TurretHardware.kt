@@ -62,7 +62,7 @@ abstract class TurretHardware(val vars: TurretVars) : Subsystem() {
      * Normalizes an angle to [-PI, PI] using atan2 for O(1) performance.
      * Much faster than while loops for large angles.
      */
-    private fun fastNormalizeRad(radians: Double): Double {
+    protected fun fastNormalizeRad(radians: Double): Double {
         return atan2(sin(radians), cos(radians))
     }
     fun update(targetOffset: Double) {
