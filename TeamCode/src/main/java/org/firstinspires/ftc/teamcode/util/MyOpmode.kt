@@ -9,7 +9,7 @@ import dev.nextftc.robot.opmode.BlazeOpMode
 import gay.zharel.fateweaver.flight.FlightRecorder
 import java.util.Locale
 
-class MyOpmode : BlazeOpMode(
+open class MyOpmode : BlazeOpMode(
     FillerRobot,
     BlazeBulkReadHook(NextLynxModule.Type.CONTROL_HUB, false),
     BlazeBulkReadHook(NextLynxModule.Type.EXPANSION_HUB, false),
