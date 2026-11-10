@@ -21,7 +21,6 @@ class MyOpmode : BlazeOpMode(
         HtmlTelemetry.addBackend(PanelsTelemetry.ftcTelemetry)
     }
 
-    // something so the commit and push will work
     override fun disabledPeriodic() = runLoopPhase({ disabledPeriodic() }) { playLoop() }
     override fun start() = runPhase({ start() }) { pressStart() }
     override fun periodic() = runLoopPhase({ periodic() }) { loop() }
