@@ -1,18 +1,15 @@
 package org.firstinspires.ftc.teamcode.Subsystems.TurretSubsystem
 
 import androidx.core.math.MathUtils.clamp
-import com.pedropathing.math.Vector
-import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.hardware.actuators.NextServo
 import dev.nextftc.units.radians
 import org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem.DriveHardware
 import org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem.DriveHardware.follower
-import org.firstinspires.ftc.teamcode.subsystems.Robot
-import org.firstinspires.ftc.teamcode.subsystems.Robot.deltaVec
+import org.firstinspires.ftc.teamcode.util.FillerRobot.deltaVec
+import org.firstinspires.ftc.teamcode.util.MyOpmode
 import org.firstinspires.ftc.teamcode.util.Subsystem
 import org.firstinspires.ftc.teamcode.util.Util.vectorAngle
 import org.firstinspires.ftc.teamcode.util.Util.wrap360
-import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.sin
 import kotlin.math.cos
@@ -68,7 +65,7 @@ abstract class TurretHardware(val vars: TurretVars) : Subsystem() {
     fun update(targetOffset: Double) {
         if (!vars.runTurret) return
         // 1. Snapshot robot state to local variables
-        val robotHeadingRad = follower.value.pose().heading().radians + (follower.value.twist().omega.radians * Robot.looptime / 1000.0) + follower.value.twist().omega.radians * vars.rotationPred
+        val robotHeadingRad = follower.value.pose().heading().radians + (follower.value.twist().omega.radians * MyOpmode.totalLoopTime / 1000.0) + follower.value.twist().omega.radians * vars.rotationPred
         val globalTargetAngleRad = vectorAngle(deltaVec) - targetOffset
 
         var localAngleRad = globalTargetAngleRad - robotHeadingRad.magnitude + vars.offsetLL

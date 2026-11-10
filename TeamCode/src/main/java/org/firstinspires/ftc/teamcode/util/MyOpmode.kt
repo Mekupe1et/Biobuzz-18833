@@ -10,12 +10,13 @@ import gay.zharel.fateweaver.flight.FlightRecorder
 import java.util.Locale
 
 class MyOpmode : BlazeOpMode(
-    FillerRobot(),
+    FillerRobot,
     BlazeBulkReadHook(NextLynxModule.Type.CONTROL_HUB, false),
     BlazeBulkReadHook(NextLynxModule.Type.EXPANSION_HUB, false),
 ) {
-    var totalLoopTime = 0.0
-
+    companion object {
+        var totalLoopTime = 0.0
+    }
     init {
         HtmlTelemetry.addBackend(FlightRecorder)
         HtmlTelemetry.addBackend(PanelsTelemetry.ftcTelemetry)
