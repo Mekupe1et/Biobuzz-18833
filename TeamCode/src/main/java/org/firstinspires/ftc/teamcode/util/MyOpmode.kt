@@ -1,13 +1,20 @@
 package org.firstinspires.ftc.teamcode.util
 
 import com.bylazar.telemetry.PanelsTelemetry
+import com.skeletonarmy.marrow.telemetry.HtmlColor
 import com.skeletonarmy.marrow.telemetry.modifiers.BoldModifier
+import com.skeletonarmy.marrow.telemetry.modifiers.ColorModifier
+import com.skeletonarmy.marrow.telemetry.modifiers.ConditionalModifier
+import com.skeletonarmy.marrow.telemetry.modifiers.EmptyModifier
 import com.skeletonarmy.marrow.telemetry.modifiers.ItalicModifier
 import dev.nextftc.hardware.lynx.NextLynxModule
 import dev.nextftc.robot.opmode.BlazeBulkReadHook
 import dev.nextftc.robot.opmode.BlazeOpMode
 import gay.zharel.fateweaver.flight.FlightRecorder
+import org.firstinspires.ftc.teamcode.util.FillerRobot.voltage
 import java.util.Locale
+import java.util.function.BooleanSupplier
+
 
 class MyOpmode : BlazeOpMode(
     FillerRobot,
@@ -62,6 +69,13 @@ class MyOpmode : BlazeOpMode(
     }
 
     private fun forEachTelemetry() {
+        HtmlTelemetry.addData(
+            "Battery", voltage, ConditionalModifier(
+                 { voltage < 11.0 },
+                ColorModifier(HtmlColor.RED),
+                ColorModifier(HtmlColor.GREEN),
+                )
+        )
         Subsystem.subsystems.forEach {
             HtmlTelemetry.log("--${it.javaClass.simpleName}--", BoldModifier())
             it.telemetry()
