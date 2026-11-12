@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Shooter
 import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.robot.Mechanism
+import dev.nextftc.robot.Telemetry
 import org.firstinspires.ftc.teamcode.Shooter.ShooterVars.speed
 
 object ShooterHardware: Mechanism {
@@ -14,7 +15,7 @@ object ShooterHardware: Mechanism {
         ShooterHardware.setPower(speed)
     }
     fun updatetelmtry(){
-
+        Telemetry.log("shooer speed", speed)
     }
 
 }
