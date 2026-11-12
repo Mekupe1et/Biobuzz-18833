@@ -37,23 +37,19 @@ class DemoSimulationTest {
 
     @Test
     fun testTurretVarsSimulationWithFakeData() {
-        // Create an anonymous subclass of TurretVars for simulation testing
-        val fakeTurretVars = object : TurretVars() {
+        // Create an anonymous implementation of TurretVars for simulation testing
+        val fakeTurretVars = object : TurretVars {
             override var servoRange: Double = 180.0
-            override var p: Double = 0.5
             override var rotationPred: Double = 1.0
             override var runTurret: Boolean = true
-            override var offset: Double = 0.0
-            override var offsetLL: Double = 0.0
-            override var reducer: Double = 1.0
+            override var turretPos: Vector = Vector(0.0, 0.0)
+
             override var servoOffset: Double = 0.0
-            override var state: TurretState = TurretState.TrackingAprilTags
             override var targetPosition: Double = 90.0
         }
 
         assertTrue(fakeTurretVars.runTurret)
         assertEquals(180.0, fakeTurretVars.servoRange, 1e-5)
-        assertEquals(TurretState.TrackingAprilTags, fakeTurretVars.state)
         assertEquals(90.0, fakeTurretVars.targetPosition, 1e-5)
     }
 

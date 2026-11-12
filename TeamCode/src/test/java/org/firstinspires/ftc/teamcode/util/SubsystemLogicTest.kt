@@ -12,6 +12,7 @@ import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferGateState
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferHardware
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferState
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferVars
+import com.pedropathing.math.Vector
 import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretHardware
 import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretState
 import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretVars
@@ -62,16 +63,12 @@ class SubsystemLogicTest {
 
     @Test
     fun testTurretHardwareFunctions() {
-        val dummyVars = object : TurretVars() {
+        val dummyVars = object : TurretVars {
             override var servoRange: Double = 180.0
-            override var p: Double = 0.5
             override var rotationPred: Double = 1.0
             override var runTurret: Boolean = true
-            override var offset: Double = 0.0
-            override var offsetLL: Double = 0.0
-            override var reducer: Double = 1.0
+            override var turretPos: Vector = Vector(0.0, 0.0)
             override var servoOffset: Double = 0.0
-            override var state: TurretState = TurretState.TrackingAprilTags
             override var targetPosition: Double = 90.0
         }
 

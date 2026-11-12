@@ -62,13 +62,13 @@ abstract class TurretHardware(val vars: TurretVars) : Subsystem() {
     protected fun fastNormalizeRad(radians: Double): Double {
         return atan2(sin(radians), cos(radians))
     }
-    fun update(targetOffset: Double) {
+    fun update (){
         if (!vars.runTurret) return
         // 1. Snapshot robot state to local variables
         val robotHeadingRad = follower.value.pose().heading().radians + (follower.value.twist().omega.radians * MyOpmode.totalLoopTime / 1000.0) + follower.value.twist().omega.radians * vars.rotationPred
-        val globalTargetAngleRad = vectorAngle(deltaVec) - targetOffset
+        val globalTargetAngleRad = vectorAngle(deltaVec)
 
-        var localAngleRad = globalTargetAngleRad - robotHeadingRad.magnitude + vars.offsetLL
+        var localAngleRad = globalTargetAngleRad - robotHeadingRad.magnitude
 
         // 3. Normalize to shortest path
         localAngleRad = fastNormalizeRad(localAngleRad)
@@ -83,7 +83,6 @@ abstract class TurretHardware(val vars: TurretVars) : Subsystem() {
     override fun start() {
         vars.runTurret = true
         lastSetPos = -1.0
-        vars.state = TurretState.TrackingAprilTags
         vars.targetPosition = 180.0
     }
 

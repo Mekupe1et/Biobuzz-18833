@@ -1,18 +1,16 @@
 package org.firstinspires.ftc.teamcode.subsystems.turretBase
 
 import com.bylazar.configurables.annotations.Configurable
+import com.pedropathing.math.Vector
 
 
 interface TurretVars {
+    //TODO: add servo range and pos for both turrets
     var servoRange: Double
-    var p: Double
     var rotationPred: Double
     var runTurret: Boolean
-    var offset: Double
-    var offsetLL: Double
-    var reducer: Double
+    var turretPos: Vector
     var servoOffset: Double
-    var state: TurretState
     var targetPosition: Double
 }
 enum class TurretState{
