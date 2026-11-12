@@ -18,6 +18,8 @@ object TransferHardware: Subsystem() {
     fun setPower(power: Double) =
         methodWarper { TransferMotor.throttle = power }
 
+    fun setServoSmallGatePos(pose: Double) = methodWarper { TransferGateServoSmall.position = pose }
+    fun setServoBigGatePos(pose: Double) = methodWarper { TransferGateServoBig.position = pose }
     fun setTransferState(state: TransferState) =
         methodWarper { TransferVars.transferState = state }
 
@@ -27,6 +29,11 @@ object TransferHardware: Subsystem() {
     fun setTransferGateModeSmall(state: TransferGateState) =
         methodWarper { TransferVars.transferGateStateSmall = state }
 
+    override fun periodic() {
+        setPower(TransferVars.transferPower)
+        setServoSmallGatePos(TransferVars.transferGateModeSmall)
+        setServoBigGatePos(TransferVars.transferGateModeBig)
+    }
     override fun telemetry() {
         HtmlTelemetry.log("Transfer Power: ${TransferVars.transferPower}")
         HtmlTelemetry.log("Transfer Gate Small State: ${TransferVars.transferGateStateSmall}")
