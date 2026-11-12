@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem
+package org.firstinspires.ftc.teamcode.subsystems.drive
 
 import com.bylazar.configurables.annotations.Configurable
 import com.pedropathing.drivetrain.DrivePowers
@@ -6,7 +6,7 @@ import com.pedropathing.follower.ManualDrive
 import com.pedropathing.math.Pose
 import dev.nextftc.hardware.RobotController
 import org.firstinspires.ftc.robotcore.internal.opmode.OpModeMeta
-import org.firstinspires.ftc.teamcode.Subsystems.DriveSubsystem.DriveVars.startingPose
+import org.firstinspires.ftc.teamcode.subsystems.drive.DriveVars.startingPose
 import org.firstinspires.ftc.teamcode.pedro.Constants.create
 import org.firstinspires.ftc.teamcode.util.MyOpModeManager
 import org.firstinspires.ftc.teamcode.util.MyOpModeManager.gp1

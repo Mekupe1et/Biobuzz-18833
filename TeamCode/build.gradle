@@ -62,4 +62,5 @@ dependencies {
     implementation 'dev.anygeneric:blazeftc:0.1.67'
     implementation "dev.anygeneric:blazeftc_pedro3:0.1.67"
 
+    testImplementation 'junit:junit:4.13.2'
 }
