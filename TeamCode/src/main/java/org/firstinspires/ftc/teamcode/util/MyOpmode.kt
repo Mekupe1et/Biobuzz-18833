@@ -5,19 +5,18 @@ import com.skeletonarmy.marrow.telemetry.HtmlColor
 import com.skeletonarmy.marrow.telemetry.modifiers.BoldModifier
 import com.skeletonarmy.marrow.telemetry.modifiers.ColorModifier
 import com.skeletonarmy.marrow.telemetry.modifiers.ConditionalModifier
-import com.skeletonarmy.marrow.telemetry.modifiers.EmptyModifier
 import com.skeletonarmy.marrow.telemetry.modifiers.ItalicModifier
 import dev.nextftc.hardware.lynx.NextLynxModule
 import dev.nextftc.robot.opmode.BlazeBulkReadHook
 import dev.nextftc.robot.opmode.BlazeOpMode
 import gay.zharel.fateweaver.flight.FlightRecorder
-import org.firstinspires.ftc.teamcode.util.FillerRobot.voltage
+import org.firstinspires.ftc.teamcode.subsystems.global.Robot
+import org.firstinspires.ftc.teamcode.subsystems.global.Robot.voltage
 import java.util.Locale
-import java.util.function.BooleanSupplier
 
 
 open class MyOpmode : BlazeOpMode(
-    FillerRobot,
+    Robot,
     BlazeBulkReadHook(NextLynxModule.Type.CONTROL_HUB, false),
     BlazeBulkReadHook(NextLynxModule.Type.EXPANSION_HUB, false),
 ) {

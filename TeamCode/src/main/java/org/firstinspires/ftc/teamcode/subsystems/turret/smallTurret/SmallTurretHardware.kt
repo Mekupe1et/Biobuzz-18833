@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.subsystems.turretBase.smallTurret
+package org.firstinspires.ftc.teamcode.subsystems.turret.smallTurret
 
 import dev.nextftc.hardware.actuators.NextServo
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretHardware
+import org.firstinspires.ftc.teamcode.subsystems.turret.TurretHardware
 import org.firstinspires.ftc.teamcode.util.HtmlTelemetry
 
 object SmallTurretHardware : TurretHardware(SmallTurretVars) {

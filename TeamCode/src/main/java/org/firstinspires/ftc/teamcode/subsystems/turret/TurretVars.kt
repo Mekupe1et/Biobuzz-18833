@@ -1,6 +1,5 @@
-package org.firstinspires.ftc.teamcode.subsystems.turretBase
+package org.firstinspires.ftc.teamcode.subsystems.turret
 
-import com.bylazar.configurables.annotations.Configurable
 import com.pedropathing.math.Vector
 
 
@@ -12,9 +11,4 @@ interface TurretVars {
     var turretPos: Vector
     var servoOffset: Double
     var targetPosition: Double
-}
-enum class TurretState{
-    TrackingAprilTags,
-    ResetEncoder,
-    Disabled
 }

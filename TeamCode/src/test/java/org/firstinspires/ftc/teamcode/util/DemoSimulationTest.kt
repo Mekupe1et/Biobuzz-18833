@@ -6,8 +6,7 @@ import org.firstinspires.ftc.teamcode.subsystems.intake.IntakeVars
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferGateState
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferState
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferVars
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretState
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretVars
+import org.firstinspires.ftc.teamcode.subsystems.turret.TurretVars
 import org.junit.Assert.*
 import org.junit.Test
 

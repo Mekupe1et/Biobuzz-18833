@@ -13,9 +13,13 @@ import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferHardware
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferState
 import org.firstinspires.ftc.teamcode.subsystems.transfer.TransferVars
 import com.pedropathing.math.Vector
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretHardware
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretState
-import org.firstinspires.ftc.teamcode.subsystems.turretBase.TurretVars
+import org.firstinspires.ftc.teamcode.subsystems.turret.TurretHardware
+import org.firstinspires.ftc.teamcode.subsystems.turret.TurretVars
+import org.firstinspires.ftc.teamcode.subsystems.turret.bigTurret.BigTurretVars
+import org.firstinspires.ftc.teamcode.subsystems.turret.smallTurret.SmallTurretVars
+import org.firstinspires.ftc.teamcode.subsystems.shooter.bigShooter.BigShooterVars
+import org.firstinspires.ftc.teamcode.subsystems.shooter.smallShooter.SmallShooterVars
+
 import org.junit.Assert.*
 import org.junit.Test
 import kotlin.math.PI
@@ -85,5 +89,24 @@ class SubsystemLogicTest {
     fun testDriveVarsStartingPose() {
         assertNotNull(DriveVars.startingPose)
         assertNotNull(DriveVars.finishingPose)
+    }
+
+    @Test
+    fun testBigAndSmallTurretVars() {
+        assertEquals(180.0, BigTurretVars.servoRange, 1e-5)
+        assertTrue(BigTurretVars.runTurret)
+        assertEquals(180.0, SmallTurretVars.servoRange, 1e-5)
+        assertTrue(SmallTurretVars.runTurret)
+    }
+
+    @Test
+    fun testBigAndSmallShooterVars() {
+        assertNotNull(BigShooterVars.shootPowLUT)
+        assertNotNull(BigShooterVars.hoodLUT)
+        assertEquals(0.00039, BigShooterVars.kv, 1e-6)
+
+        assertNotNull(SmallShooterVars.shootPowLUT)
+        assertNotNull(SmallShooterVars.hoodLUT)
+        assertEquals(0.00039, SmallShooterVars.kv, 1e-6)
     }
 }
