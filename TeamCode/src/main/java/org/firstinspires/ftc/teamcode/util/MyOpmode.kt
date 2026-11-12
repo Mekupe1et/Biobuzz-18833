@@ -16,7 +16,7 @@ import java.util.Locale
 import java.util.function.BooleanSupplier
 
 
-class MyOpmode : BlazeOpMode(
+open class MyOpmode : BlazeOpMode(
     FillerRobot,
     BlazeBulkReadHook(NextLynxModule.Type.CONTROL_HUB, false),
     BlazeBulkReadHook(NextLynxModule.Type.EXPANSION_HUB, false),
