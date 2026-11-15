@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.Shooter
 import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.robot.Mechanism
 import dev.nextftc.robot.Telemetry
-import org.firstinspires.ftc.teamcode.Shooter.ShooterVars.speed
+import org.firstinspires.ftc.teamcode.Shooter.ShooterVars.Power
 
 object ShooterHardware: Mechanism {
     val shooter = lazy{NextMotor("shooter")}
@@ -12,10 +12,10 @@ object ShooterHardware: Mechanism {
 
     override fun periodic() {
         updatetelmtry()
-        ShooterHardware.setPower(speed)
+        ShooterHardware.setPower(Power)
     }
     fun updatetelmtry(){
-        Telemetry.log("shooer speed", speed)
+        Telemetry.log("shooer speed", Power)
     }
 
 }

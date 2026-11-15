@@ -25,6 +25,10 @@ object DriveHardware : Mechanism{
         frontright.throttle = fr
         frontleft.throttle = fl
     }
+
+    override fun periodic() {
+        drivePower()
+    }
     fun setimu(gamepad: Gamepad){
         imu.value.initialize(IMU.Parameters(RevHubOrientationOnRobot(LogoFacingDirection.UP, UsbFacingDirection.RIGHT)))
     }

@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.Shooter
 
 import dev.nextftc.robot.Mechanism
+import dev.nextftc.units.measuretypes.Power
+
 object ShooterVars: Mechanism {
-    var speed = 0.7
+    var Power = 0.0
 }
