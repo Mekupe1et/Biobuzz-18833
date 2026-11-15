@@ -10,61 +10,56 @@ import org.firstinspires.ftc.teamcode.Drive.DriveHardware.imu
 
 import org.firstinspires.ftc.teamcode.Drive.DriveVars.place
 import com.qualcomm.robotcore.hardware.PIDCoefficients
-import org.firstinspires.ftc.teamcode.Drive.DriveVars.drivePower
-import org.firstinspires.ftc.teamcode.Drive.DriveVars.getPosition
-import org.firstinspires.ftc.teamcode.Drive.DriveVars.turnPower
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.Strafe
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.drive
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.turn
+
 
 object DriveComms {
-    fun rightTurn(){
-        backleft.throttle = turnPower
-        backright.throttle = -turnPower
-        frontright.throttle = -turnPower
-        frontleft.throttle = turnPower
-    }
-    fun leftTurn(){
-        backleft.throttle = -turnPower
-        backright.throttle = turnPower
-        frontright.throttle = turnPower
-        frontleft.throttle = -turnPower
-    }
-    fun forward(){
-        backleft.throttle = drivePower
-        backright.throttle = drivePower
-        frontleft.throttle = drivePower
-        frontright.throttle = drivePower
-    }
-    fun backword(){
-        backright.throttle = -drivePower
-        backleft.throttle = -drivePower
-        frontright.throttle = -drivePower
-        frontleft.throttle = -drivePower
-    }
-    fun update(gamepad: Gamepad){
+    fun update(){
+        if ((place <= 94) && (place >= 86)){
+            if(drive > 0.3) {
+                Strafe = -0.8
+            }
+            else if(drive < -0.3){
+                Strafe = 0.8
+            }
+            else if (Strafe > 0.3){
+                drive = 0.8
 
-        if (gamepad.left_stick_button){
-            imu.value.resetYaw()
-        }
-        if (gamepad.right_stick_y > 0.3){
-            getPosition = 0.0
-            if (place == 0.0){
-                forward()
             }
-            else if (place <= 180){
-            leftTurn()
-            }
-            else {
-                rightTurn()
+            else if(Strafe < -0.3){
+                drive = -0.8
+
             }
         }
-       else if(gamepad.right_stick_y <= -0.3) {
-           getPosition = 180.0
-           if (place == 180.0){
-               backword()
-           }
-            else if (place >= 0 && place > 180.0){
-                rightTurn()
-
-           }
+        else if((place <= 184) && (place >= 176)){
+            if (drive > 0.3){
+                drive = -0.8
+            }
+            else if(drive < -0.3){
+                drive = 0.8
+            }
+            else if(Strafe > 0.3){
+                Strafe = -0.8
+            }
+            else if(Strafe < -0.3){
+                Strafe = 0.8
+            }
+        }
+        else if(place <= 274){
+            if(drive > 0.3){
+                Strafe = 0.8
+            }
+            else if(drive < -0.3){
+                Strafe = -0.8
+            }
+            else if(Strafe > 0.3){
+                drive = -0.8
+            }
+            else if(Strafe < -0.3){
+                drive = 0.8
+            }
         }
     }
 }

@@ -7,9 +7,9 @@ import org.firstinspires.ftc.teamcode.Intake.IntakeVars.speed
 
 
 object IntakeHardware : Mechanism{
-    val intake = lazy { NextMotor("intake") }
+    val intake by lazy { NextMotor("intake") }
     fun setPower(power: Double){
-        intake.value.throttle = power
+        intake.throttle = power
     }
     override fun periodic() {
         updateTelemetry()

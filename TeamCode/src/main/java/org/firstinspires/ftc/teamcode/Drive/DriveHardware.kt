@@ -8,6 +8,10 @@ import dev.nextftc.robot.Telemetry
 import dev.nextftc.hardware.sensors.NextIMU
 import com.qualcomm.robotcore.hardware.Gamepad
 import com.qualcomm.robotcore.hardware.IMU
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.bl
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.br
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.fl
+import org.firstinspires.ftc.teamcode.Drive.DriveVars.fr
 
 object DriveHardware : Mechanism{
     val frontright by lazy{NextMotor("fr")}
@@ -15,6 +19,12 @@ object DriveHardware : Mechanism{
     val backright by lazy{NextMotor("br")}
     val backleft by lazy { NextMotor("bl") }
     val imu = lazy{ NextIMU("imu") }
+    fun drivePower(){
+        backleft.throttle = bl
+        backright.throttle = br
+        frontright.throttle = fr
+        frontleft.throttle = fl
+    }
     fun setimu(gamepad: Gamepad){
         imu.value.initialize(IMU.Parameters(RevHubOrientationOnRobot(LogoFacingDirection.UP, UsbFacingDirection.RIGHT)))
     }
