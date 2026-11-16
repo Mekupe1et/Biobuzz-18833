@@ -9,6 +9,7 @@ import dev.nextftc.hardware.actuators.NextServo
 import dev.nextftc.robot.Telemetry
 import org.firstinspires.ftc.teamcode.util.HtmlTelemetry
 import org.firstinspires.ftc.teamcode.util.Subsystem
+import java.text.Format
 
 object TransferHardware: Subsystem() {
     val TransferMotor = NextMotor("tM")
@@ -28,10 +29,11 @@ object TransferHardware: Subsystem() {
         methodWarper { TransferVars.transferGateStateSmall = state }
 
     override fun telemetry() {
-        HtmlTelemetry.log("Transfer Power: ${TransferVars.transferPower}")
-        HtmlTelemetry.log("Transfer Gate Small State: ${TransferVars.transferGateStateSmall}")
-        HtmlTelemetry.log("Transfer Gate Small Position: ${TransferVars.transferGateModeSmall}")
-        HtmlTelemetry.log("Transfer Gate Big State: ${TransferVars.transferGateStateBig}")
-        HtmlTelemetry.log("Transfer Gate Big Position: ${TransferVars.transferGateModeBig}")
+        HtmlTelemetry.log("── Transfer ──", FormatBuilder().setColor("#00FFF4").bold())
+        HtmlTelemetry.log("Transfer Power: ${TransferVars.transferPower}", FormatBuilder().setColor("#00FFF4"))
+        HtmlTelemetry.log("Transfer Gate Small State: ${TransferVars.transferGateStateSmall}", FormatBuilder().setColor("#00FFF4"))
+        HtmlTelemetry.log("Transfer Gate Small Position: ${TransferVars.transferGateModeSmall}", FormatBuilder().setColor("#00FFF4"))
+        HtmlTelemetry.log("Transfer Gate Big State: ${TransferVars.transferGateStateBig}", FormatBuilder().setColor("#00FFF4"))
+        HtmlTelemetry.log("Transfer Gate Big Position: ${TransferVars.transferGateModeBig}", FormatBuilder().setColor("#00FFF4"))
     }
 }

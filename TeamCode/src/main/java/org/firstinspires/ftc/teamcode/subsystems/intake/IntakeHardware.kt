@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems.intake
 
+import com.skeletonarmy.marrow.telemetry.FormatBuilder
 import com.skeletonarmy.marrow.telemetry.modifiers.BoldModifier
 import dev.nextftc.hardware.actuators.NextMotor
 import dev.nextftc.hardware.actuators.NextServo
@@ -25,9 +26,11 @@ object IntakeHardware: Subsystem() {
     }
 
     override fun telemetry() {
-        HtmlTelemetry.log("Intake State", IntakeVars.intakeState)
-        HtmlTelemetry.log("Intake Power", IntakeVars.intakePower)
-        HtmlTelemetry.log("Intake Arm Position", IntakeVars.intakeArmPos)
+        HtmlTelemetry.log("── Intake ──", FormatBuilder().setColor("#EEFF00").bold())
+        HtmlTelemetry.log("Intake State: ${IntakeVars.intakeState}", FormatBuilder().setColor("#EEFF00"))
+        HtmlTelemetry.log("Intake Power: ${IntakeVars.intakePower}", FormatBuilder().setColor("#EEFF00"))
+        HtmlTelemetry.log("Intake Arm State: ${IntakeVars.intakeArmState}", FormatBuilder().setColor("#EEFF00"))
+        HtmlTelemetry.log("Intake Arm Position: ${IntakeVars.intakeArmPos}", FormatBuilder().setColor("#EEFF00"))
     }
 
 }
