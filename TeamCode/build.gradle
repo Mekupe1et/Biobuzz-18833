@@ -39,6 +39,16 @@ android {
     packagingOptions {
         jniLibs.useLegacyPackaging true
     }
+
+    // FTCodeSim runs as a JVM unit test (see src/test/java/SimulateRobot.java)
+    testOptions {
+        unitTests.all {
+            outputs.upToDateWhen { false }
+            testLogging {
+                showStandardStreams = true
+            }
+        }
+    }
 }
 
 repositories {
@@ -47,6 +57,12 @@ repositories {
     }
     maven {
         url 'https://maven.anygeneric.dev/'
+    }
+    maven {
+        url 'https://www.jitpack.io'
+    }
+    maven {
+        url 'https://repo.dairy.foundation/snapshots'
     }
 }
 
@@ -61,5 +77,10 @@ dependencies {
     implementation 'com.skeletonarmyftc.marrow:core:1.2.4'
     implementation 'dev.anygeneric:blazeftc:0.1.67'
     implementation "dev.anygeneric:blazeftc_pedro3:0.1.67"
+
+    // FTCodeSim - simulate the robot in AdvantageScope (test only, never shipped to the robot)
+    testImplementation("org.codeblooded.ftcodesim:ftcodesim:0.2.1-beta")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.22.3") // edits the AdvantageScope layout
 
 }

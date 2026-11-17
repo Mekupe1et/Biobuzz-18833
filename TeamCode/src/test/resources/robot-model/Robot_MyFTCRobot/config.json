@@ -1,0 +1,201 @@
+{
+  "name": "My FTC Robot",
+  "isFTC": true,
+  "disableSimplification": false,
+  "rotations": [
+    {
+      "axis": "x",
+      "degrees": 90
+    }
+  ],
+  "position": [
+    0,
+    0,
+    0
+  ],
+  "cameras": [],
+  "components": [
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.1307,
+        -0.0,
+        -0.156
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.0006,
+        -0.1166,
+        -0.329
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.0006,
+        0.1231,
+        -0.329
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.0277,
+        0.1764,
+        -0.387
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.1174,
+        -0.193,
+        -0.0517
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.1174,
+        0.192,
+        -0.0514
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.1181,
+        -0.1919,
+        -0.0515
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.1186,
+        0.193,
+        -0.0518
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.1305,
+        0.0,
+        -0.1559
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        -0.1987,
+        0.0,
+        -0.1328
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.201,
+        0.0,
+        -0.119
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.117,
+        0.0,
+        -0.165
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.2184,
+        -0.1817,
+        -0.0375
+      ]
+    },
+    {
+      "zeroedRotations": [
+        {
+          "axis": "x",
+          "degrees": 90
+        }
+      ],
+      "zeroedPosition": [
+        0.2184,
+        0.1817,
+        -0.0375
+      ]
+    }
+  ]
+}

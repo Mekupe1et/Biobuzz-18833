@@ -20,6 +20,7 @@ object IntakeHardware: Subsystem() {
 
     fun setIntakeArmState(state: IntakeArmState) = methodWarper { IntakeVars.intakeArmState = state }
 
+    // a line that dont do a shit and just here so the push and commit will work
     override fun periodic() {
         setPower(IntakeVars.intakePower)
         setPose(IntakeVars.intakeArmPos)

@@ -79,3 +79,5 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+# FTCodeSim run logs (created each time the sim runs)
+TeamCode/sim-logs/
