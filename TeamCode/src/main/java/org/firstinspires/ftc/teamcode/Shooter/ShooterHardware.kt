@@ -12,7 +12,7 @@ object ShooterHardware: Mechanism {
 
     override fun periodic() {
         updatetelmtry()
-        ShooterHardware.setPower(Power)
+        setPower(Power)
     }
     fun updatetelmtry(){
         Telemetry.log("shooer speed", Power)

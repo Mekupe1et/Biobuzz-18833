@@ -1,63 +1,66 @@
 package org.firstinspires.ftc.teamcode.Drive
 
+import com.qualcomm.robotcore.hardware.Gamepad
 import org.firstinspires.ftc.teamcode.Drive.DriveVars.place
 import org.firstinspires.ftc.teamcode.Drive.DriveVars.Strafe
 import org.firstinspires.ftc.teamcode.Drive.DriveVars.drive
-import org.firstinspires.ftc.teamcode.Drive.DriveVars.turn
+
 
 
 object DriveComms {
-    fun update(){
-        if ((place <= 94) && (place >= 86)){
+    fun update(gamepad: Gamepad){
+        if ((place > 45) && (place <= 135)){
             if(drive > 0.3) {
-                Strafe = -0.8
+                Strafe = gamepad.right_stick_y.toDouble()
+                drive = 0.0
             }
             else if(drive < -0.3){
-                Strafe = 0.8
+                Strafe = gamepad.right_stick_y.toDouble()
+                drive = 0.0
             }
             else if (Strafe > 0.3){
-                drive = 0.8
-
+                drive = gamepad.right_stick_x.toDouble()
+                Strafe = 0.0
             }
             else if(Strafe < -0.3){
-                drive = -0.8
+                drive = gamepad.right_stick_x.toDouble()
+                Strafe - 0.0
 
             }
         }
-        else if((place <= 184) && (place >= 176)){
+        else if((place > 135) && (place <= 225)){
             if (drive > 0.3){
-                drive = -0.8
+                drive = gamepad.right_stick_y.toDouble()
+                Strafe  = 0.0
             }
             else if(drive < -0.3){
-                drive = 0.8
+                drive = gamepad.right_stick_y.toDouble()
+                Strafe = 0.0
             }
             else if(Strafe > 0.3){
-                Strafe = -0.8
+                Strafe = gamepad.right_stick_x.toDouble()
+                drive = 0.0
             }
             else if(Strafe < -0.3){
-                Strafe = 0.8
+                Strafe = gamepad.right_stick_x.toDouble()
+                drive = 0.0
             }
         }
-        else if((place <= 274) && (place >= 266)){
+        else if((place > 225) && (place <= 315)){
             if(drive > 0.3){
-                Strafe = 0.8
+                Strafe = gamepad.right_stick_y.toDouble()
+                drive = 0.0
             }
             else if(drive < -0.3){
-                Strafe = -0.8
+                Strafe = gamepad.right_stick_y.toDouble()
+                drive = 0.0
             }
             else if(Strafe > 0.3){
-                drive = -0.8
+                drive = gamepad.right_stick_x.toDouble()
+                Strafe = 0.0
             }
             else if(Strafe < -0.3){
-                drive = 0.8
-            }
-        }
-        else {
-            if(place <= 135){
-                turn = -0.6
-            }
-           else{
-               turn = 0.6
+                drive = gamepad.right_stick_x.toDouble()
             }
         }
     }
